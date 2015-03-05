@@ -13,7 +13,7 @@ public class DataGridUtil {
 			ConfigurationBuilder builder = new ConfigurationBuilder();
 			builder.addServer()
 			.host("localhost")
-			.port(11322);
+			.port(11322).port(11222);
 			RemoteCacheManager cacheManager = new RemoteCacheManager(builder.build());
 			cache = cacheManager.getCache("default");
 		}
