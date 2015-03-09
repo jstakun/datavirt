@@ -22,5 +22,6 @@ public class HibernateDataLoader {
             DataGridUtil.put(next.getCustomerid(), next);
             System.out.println("Customer loaded to cache");
         }
+        DataGridUtil.getStats();
 	}
 }

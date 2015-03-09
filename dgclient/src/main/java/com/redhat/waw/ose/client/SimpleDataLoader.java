@@ -17,10 +17,12 @@ public class SimpleDataLoader {
 		}
 		
 		System.out.println("Loaded " + limit + " records into the Data Grid\n");
+		
+		DataGridUtil.getStats();
 	}
 	
 	public static void main(String[] args) {
-		loadData(12, 1);
+		loadData(11, 1);
 	}
 	
 }

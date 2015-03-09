@@ -8,8 +8,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
-        <!-- version.org.infinispan>6.0.2.Final</version.org.infinispan -->
-        <version.org.infinispan>7.0.2.Final</version.org.infinispan>
+        <!-- version.org.infinispan>7.0.2.Final</version.org.infinispan -->
+        <version.org.infinispan>6.2.0.Final-redhat-4</version.org.infinispan>
         <version.org.slf4j>1.6.4</version.org.slf4j>
   </properties>      
   
