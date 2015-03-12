@@ -18,7 +18,7 @@ public class HibernateDataLoader {
         List<Customer> resultList = q.list();
         System.out.println("num of customers:" + resultList.size());
         for (Customer next : resultList) {
-            System.out.println("next customer: " + next.getFirstname() + " " + next.getLastname());
+            System.out.println("Loading customer: " + next.getCustomerid() + " " +next.getFirstname() + " " + next.getLastname());
             DataGridUtil.put(next.getCustomerid(), next);
             System.out.println("Customer loaded to cache");
         }
