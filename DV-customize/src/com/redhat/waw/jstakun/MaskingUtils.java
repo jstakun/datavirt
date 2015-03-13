@@ -22,7 +22,7 @@ public class MaskingUtils {
         	StringBuilder sb = new StringBuilder(s.length());
         	for (String c : letters) {
         		sb.append(c);
-        	}
+        	} 
         	return sb.toString();
         } catch (Exception e) {
         	logger.log(Level.SEVERE, MaskingUtils.class.getName() + ".getScrambled() failed:" , e);

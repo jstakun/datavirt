@@ -1,6 +1,4 @@
-package com.redhat.waw.ose.model;
-
-option java_outer_classname = "CustomerProtos";
+package protony;
 
 /* @Indexed */
 message Customer {

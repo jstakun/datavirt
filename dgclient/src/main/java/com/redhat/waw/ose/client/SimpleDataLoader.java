@@ -8,17 +8,23 @@ public class SimpleDataLoader {
 		
 		System.out.println("Starting the Hotrod Client\n");
 
-			
 		for (int i = first; i< first+limit ;i++) {
 			Customer c = new Customer();
 			c.setCustomerid("cst" + i);
 			c.setFirstname("John" + i);
-			DataGridUtil.put("cst" + i, c);		
+			c.setLastname("John" + i);
+			try {
+				DataGridUtil.put("cst" + i, c);	
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		System.out.println("Loaded " + limit + " records into the Data Grid\n");
 		
 		DataGridUtil.getStats();
+		
+		DataGridUtil.testSearch();
 	}
 	
 	public static void main(String[] args) {

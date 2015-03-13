@@ -37,7 +37,7 @@ public class CustomerMarshaller implements MessageMarshaller<Customer> {
 
 	@Override
 	public String getTypeName() {
-		return "com.redhat.waw.ose.model.Customer";
+		return "protony.Customer";
 	}
 
 	@Override

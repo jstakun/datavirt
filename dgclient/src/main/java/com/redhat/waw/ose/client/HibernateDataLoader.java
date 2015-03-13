@@ -10,7 +10,7 @@ import com.redhat.waw.ose.model.Customer;
 public class HibernateDataLoader {
 	
 	public static void main(String[] args) {
-		
+			
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		  
 		Query q = session.createQuery("From Customer ");
@@ -19,9 +19,16 @@ public class HibernateDataLoader {
         System.out.println("num of customers:" + resultList.size());
         for (Customer next : resultList) {
             System.out.println("Loading customer: " + next.getCustomerid() + " " +next.getFirstname() + " " + next.getLastname());
-            DataGridUtil.put(next.getCustomerid(), next);
-            System.out.println("Customer loaded to cache");
+            try {
+            	DataGridUtil.put(next.getCustomerid(), next);
+            	System.out.println("Customer loaded to cache");
+            } catch (Exception e) {
+    			e.printStackTrace();
+    		}
         }
+        
         DataGridUtil.getStats();
+        
+        DataGridUtil.testSearch();       
 	}
 }
