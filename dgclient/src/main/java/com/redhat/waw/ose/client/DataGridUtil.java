@@ -16,6 +16,8 @@ import org.infinispan.query.remote.client.ProtobufMetadataManagerConstants;
 
 import com.redhat.waw.ose.model.Customer;
 import com.redhat.waw.ose.model.CustomerMarshaller;
+import com.redhat.waw.ose.model.CustomerTransaction;
+import com.redhat.waw.ose.model.CustomerTransactionMarshaller;
 
 public class DataGridUtil {
 
@@ -42,6 +44,7 @@ public class DataGridUtil {
 				SerializationContext ctx = ProtoStreamMarshaller.getSerializationContext(cacheManager);
 				ctx.registerProtoFiles(FileDescriptorSource.fromResources(PROTOBUF_DEFINITION_RESOURCE));
 				ctx.registerMarshaller(new CustomerMarshaller());
+				ctx.registerMarshaller(new CustomerTransactionMarshaller());				
 				
 				RemoteCache<String, String> metadataCache = cacheManager.getCache(ProtobufMetadataManagerConstants.PROTOBUF_METADATA_CACHE_NAME);
 				metadataCache.put(PROTOBUF_DEFINITION_RESOURCE, ProtobufSchemaRegister.readResource(PROTOBUF_DEFINITION_RESOURCE));
@@ -71,10 +74,17 @@ public class DataGridUtil {
 	
 	public static void testSearch() {
 		QueryFactory<Query> qf = Search.getQueryFactory(getCache());
-		Query query = qf.from(Customer.class)
+		
+		Query customerQuery = qf.from(Customer.class)
 		.having("customerid").like("CST01010").toBuilder()
 				.build();
-		List<Customer> results = query.list();
-		System.out.println("Found " + results.size() + " matches");
+		List<Customer> results = customerQuery.list();
+		System.out.println("Found " + results.size() + " customers");
+		
+		Query transactionQuery = qf.from(CustomerTransaction.class)
+		.having("customerid").like("CST01010").toBuilder()
+				.build();
+		List<CustomerTransaction> transactions = transactionQuery.list();
+		System.out.println("Found " + transactions.size() + " transactions");
 	}
 }

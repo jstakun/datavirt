@@ -28,3 +28,17 @@ message Customer {
    
    optional string streetaddress2 = 11;
 }
+
+/* @Indexed */
+message CustomerTransaction {
+   
+   /* @IndexedField(index=true, store=false) */
+   required string transactionid = 1;
+   
+    /* @IndexedField */
+   required string customerid = 2;
+   
+   required double amount = 3;
+   
+   required int64 transactionDate = 4;
+}  
