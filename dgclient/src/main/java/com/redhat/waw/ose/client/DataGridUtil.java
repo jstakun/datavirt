@@ -87,4 +87,16 @@ public class DataGridUtil {
 		List<CustomerTransaction> transactions = transactionQuery.list();
 		System.out.println("Found " + transactions.size() + " transactions");
 	}
+	
+	/*public void execDistTask(DistributedCallable task) {
+		DistributedExecutorService des = new DefaultExecutorService(getCache());
+	    long start = System.currentTimeMillis();
+	    List<Future<Long>> results = des.submitEverywhere(task);
+	    int count = 0;
+	    for (Future<Long> f : results) {
+	    	System.out.println("Node size: " + f.get());
+	        count += f.get();
+	    }
+	    System.out.println("Cache size: " + count);
+	}*/
 }
