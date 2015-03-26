@@ -31,7 +31,7 @@ public class HibernateDataLoader {
             	for (int i=0;i<TRANSACTION_COUNT;i++) {
             		CustomerTransaction t = new CustomerTransaction();
             		t.setTransactionDate(System.currentTimeMillis());
-            		t.setTransactionid(next.getCustomerid() + t.getTransactionDate());
+            		t.setTransactionid(next.getCustomerid() + "_" + t.getTransactionDate() + "_" + i);
             		t.setCustomerid(next.getCustomerid());
             		t.setAmount(r.nextDouble() * 1000d);
             		DataGridUtil.put(t.getTransactionid(), t);
