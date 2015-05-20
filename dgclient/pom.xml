@@ -102,7 +102,12 @@
                 <artifactId>remoting-jmx</artifactId>
                 <version>1.1.2.Final-redhat-1</version>
             </dependency>
- 	 </dependencies>
+		   <dependency>
+		   	<groupId>com.redhat.waw.jboss</groupId>
+		   	<artifactId>cdm</artifactId>
+		   	<version>0.0.2</version>
+		   </dependency>
+    </dependencies>
   
   <build>
     <sourceDirectory>src/main/java</sourceDirectory>
